@@ -13,21 +13,21 @@ enum Priorty {
     case NotDefined
     
 }
-class Task: Equatable{
+class Task: Equatable, Codable{
     static func == (lhs: Task, rhs: Task) -> Bool {
         return lhs.name == rhs.name && lhs.priorty == rhs.priorty && lhs.dateCreated == rhs.dateCreated
     }
     
     var name : String
-    var priorty: Priorty
+    var priorty: String
     var dateCreated: Date
     
-    init(name: String, weight: Priorty) {
+    init(name: String, priorty: String) {
         self.name = name
-        self.priorty = weight
+        self.priorty = priorty
         dateCreated = Date()
     }
     convenience init() {
-        self.init(name: "task", weight: .NotDefined)
+        self.init(name: "task", priorty: "Not Defined")
     }
 }
