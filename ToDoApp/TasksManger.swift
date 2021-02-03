@@ -9,6 +9,12 @@ import UIKit
 class TasksManger{
     var allTasks = [Task]()
     
+    let itemArchiveURL: URL = {
+        let documentsDirectories =
+            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("items.plist")
+    }()
     @discardableResult func createItem()->Task{
         let newTask = Task()
         allTasks.append(newTask)
@@ -26,19 +32,33 @@ class TasksManger{
         removeTask(task)
         allTasks.insert(task, at: toIndex)
     }
-    func saveChanges() ->Bool{
+    @objc func saveChanges() ->Bool{
         
         do {
             let encoder = PropertyListEncoder()
             let data = try encoder.encode(allTasks)
+            try data.write(to: itemArchiveURL, options: .atomic)
+            return true
         } catch {
          preconditionFailure("encoding failure \(error)")
+            return false
+        }
+    }
+    
+    init() {
+        
+        do {
+                let data = try Data(contentsOf: itemArchiveURL)
+                let unarchiver = PropertyListDecoder()
+                let tasks = try unarchiver.decode([Task].self, from: data)
+                allTasks = tasks
+        } catch{
+            print("Error reading in saved items \(error)")
         }
         
         
-        
-        
-        return false
+        let notifactionCenter = NotificationCenter.default
+        notifactionCenter.addObserver(self, selector: #selector(saveChanges), name: UIScene.didEnterBackgroundNotification, object: nil)
     }
     
 }
