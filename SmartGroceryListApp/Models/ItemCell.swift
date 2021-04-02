@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TaskCell: UITableViewCell {
-    var task : Task!
+class ItemCell: UITableViewCell {
+    var task : Item!
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!

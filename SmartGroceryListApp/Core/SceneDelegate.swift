@@ -18,10 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let taskManger = TasksManger()
+        let taskManger = ItemsManger()
         let imageStore = ImageStore()
         let nvgViewController = window?.rootViewController as! UINavigationController
-        let toDoTableViewController = nvgViewController.topViewController as! ToDoTableViewController
+        let toDoTableViewController = nvgViewController.topViewController as! GroceryListViewController
         toDoTableViewController.tasksManger = taskManger
         toDoTableViewController.imageStore = imageStore
         

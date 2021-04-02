@@ -6,8 +6,8 @@
 //
 import UIKit
 
-class TasksManger{
-    var allTasks = [Task]()
+class ItemsManger{
+    var allTasks = [Item]()
     
     let itemArchiveURL: URL = {
         let documentsDirectories =
@@ -15,13 +15,13 @@ class TasksManger{
         let documentDirectory = documentsDirectories.first!
         return documentDirectory.appendingPathComponent("items.plist")
     }()
-    @discardableResult func createItem()->Task{
-        let newTask = Task()
+    @discardableResult func createItem()->Item{
+        let newTask = Item()
         allTasks.append(newTask)
         return newTask
     }
     
-    func removeTask(_ task: Task){
+    func removeTask(_ task: Item){
         if let index = allTasks.firstIndex(of: task){
             allTasks.remove(at: index)
         }
@@ -48,7 +48,7 @@ class TasksManger{
         do {
                 let data = try Data(contentsOf: itemArchiveURL)
                 let unarchiver = PropertyListDecoder()
-                let tasks = try unarchiver.decode([Task].self, from: data)
+                let tasks = try unarchiver.decode([Item].self, from: data)
                 allTasks = tasks
         } catch{
             print("Error reading in saved items \(error)")

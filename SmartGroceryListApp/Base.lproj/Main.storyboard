@@ -99,13 +99,13 @@
         <!--TasksManger-->
         <scene sceneID="sMy-UK-QUd">
             <objects>
-                <tableViewController id="x6q-pS-Npl" customClass="ToDoTableViewController" customModule="SmartGroceryList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="x6q-pS-Npl" customClass="GroceryListViewController" customModule="SmartGroceryList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qoL-gF-EBA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="65" id="b8n-AO-LKp" customClass="TaskCell" customModule="SmartGroceryList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="65" id="b8n-AO-LKp" customClass="ItemCell" customModule="SmartGroceryList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b8n-AO-LKp" id="kXi-Kd-TPI">

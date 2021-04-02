@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController{
+class GroceryListViewController: UITableViewController{
     
-    var tasksManger: TasksManger!
+    var tasksManger: ItemsManger!
     var imageStore: ImageStore!
     
     let dateFormatter: DateFormatter = {
@@ -37,7 +37,7 @@ class ToDoTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let task = tasksManger.allTasks[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! ItemCell
         
         cell.nameLabel.text = task.name
         cell.dateLabel.text = dateFormatter.string(from: task.dateCreated)

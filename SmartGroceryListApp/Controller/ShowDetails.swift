@@ -12,7 +12,7 @@ class ShowDetailsViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet var dateText: UITextField!
     @IBOutlet var imageView: UIImageView!
     
-    var task: Task!{
+    var task: Item!{
         didSet{
             navigationItem.title = task.name
         }

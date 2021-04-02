@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Task: Equatable, Codable{
-    static func == (lhs: Task, rhs: Task) -> Bool {
+class Item: Equatable, Codable{
+    static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.name == rhs.name &&  lhs.dateCreated == rhs.dateCreated
     }
     
@@ -22,6 +22,6 @@ class Task: Equatable, Codable{
         self.taskKey = UUID().uuidString
     }
     convenience init() {
-        self.init(name: "task")
+        self.init(name: "item")
     }
 }
