@@ -1,4 +1,4 @@
-# SmartShoppingList_ML
+# SmartShoppingList_ML  (Machine Learning App)
 
 > SSL is a smart Shopping List, you can insert the items you want to be remainded of manually or you can take a photo of the item and the app will automatically recognize the item using Machine Learning Model.   
 
