@@ -39,7 +39,9 @@ class ShowDetailsViewController: UIViewController, UIImagePickerControllerDelega
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        if let name = nameText.text{
+            task.name = name
+        }
         
     }
     
@@ -84,6 +86,7 @@ class ShowDetailsViewController: UIViewController, UIImagePickerControllerDelega
         if let name = recognize(imag: image){
             nameText.text = name
             task.name = name
+            navigationItem.title = name
         }
         
         dismiss(animated: true, completion: nil)
@@ -101,6 +104,11 @@ class ShowDetailsViewController: UIViewController, UIImagePickerControllerDelega
         return nil
     }
     
+    
+    
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
     
 }
